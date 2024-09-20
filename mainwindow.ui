@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1006</width>
+    <height>833</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="RippleButton" name="openSideBarBT">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>250</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+	background-color: rgb(35, 35, 35);
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0px;
+	
+	border-color: rgb(35, 35, 35);
+	padding: 5px;
+	
+	font: 15pt &quot;Microsoft Sans Serif&quot;;
+
+}
+
+
+QPushButton::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #051a39;
+
+}
+
+
+QPushButton::hover
+{
+	
+	background-color: rgb(85, 85, 85);
+	color: rgb(255,255,255);
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	border-color: #051a39;
+	padding: 5px;
+
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="Resources.qrc">
+      <normaloff>:/new/prefix1/Screenshot 2024-09-18 134211.png</normaloff>:/new/prefix1/Screenshot 2024-09-18 134211.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>0</y>
+      <width>621</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <widget class="SideBar" name="widget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>-130</x>
+       <y>0</y>
+       <width>165</width>
+       <height>661</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>2</width>
+       <height>2</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="RippleButton" name="pushButton_3">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>product</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="RippleButton" name="pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton
+{
+	background-color: rgb(35, 35, 35);
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	
+	border-color: rgb(35, 35, 35);
+	padding: 5px;
+	
+	font: 15pt &quot;Microsoft Sans Serif&quot;;
+
+}
+
+QPushButton::hover
+{
+	
+	background-color: rgb(85, 85, 85);
+	color: rgb(255,255,255);
+	border-style: solid;
+	border-width: 1px;
+	border-color: #051a39;
+	padding: 5px;
+
+}</string>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="RippleButton" name="pushButton_4">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Quantity</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="RippleButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>390</y>
+      <width>151</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+	background-color: rgb(35, 35, 35);
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 50px;
+	border-color: rgb(35, 35, 35);
+	padding: 5px;
+	font: 15pt &quot;Microsoft Sans Serif&quot;;
+
+}
+
+QPushButton::hover
+{
+	
+	background-color: rgb(40,40,40);
+	color: rgb(255,255,255);
+	border-style: solid;
+	border-radius: 50px;
+	padding: 5px;
+
+}</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SideBar</class>
+   <extends>QWidget</extends>
+   <header location="global">sidebar.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>RippleButton</class>
+   <extends>QPushButton</extends>
+   <header>ripplebutton.hpp</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
