@@ -1,9 +1,6 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
-#include <QGraphicsBlurEffect>
-#include <ripplebutton.hpp>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -11,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->pushButton->setRippleColor(Qt::lightGray);
     ui->widget->setOpenButtton(ui->openSideBarBT);
-    ui->widget->setLayout(MyUI::Layout::Horizontal);
-    ui->widget->setOpenDirction(MyUI::OpenDirction::ToBottom);
+    ui->widget->setLayout(MyUI::Layout::Vertical);
+    ui->widget->setOpenDirction(MyUI::OpenDirction::ToRight);
 }
 
 MainWindow::~MainWindow()

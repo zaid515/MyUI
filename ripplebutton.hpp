@@ -51,7 +51,9 @@ class RippleButton : public QPushButton
     Q_OBJECT
 
 public:
-    RippleButton(QWidget *parent = nullptr);
+    explicit RippleButton(QWidget *parent = nullptr);
+    explicit RippleButton(const QString &text, QWidget *parent = nullptr);
+    RippleButton(const QIcon &icon, const QString &text, QWidget *parent = nullptr);
     virtual ~RippleButton();
     void setRippleColor(const QColor &color);
 

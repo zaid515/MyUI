@@ -39,16 +39,16 @@ public:
     int getOpenDuration() const;
     void setOpenDuration(int newOpenDuration);
 
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
 private:
     int x;
     int y;
     int openDuration;
+    bool openStat = false;
     MyUI::Layout layout;
     MyUI::OpenDirction openDirction;
-    bool openStat = false;
-
-protected:
-    void paintEvent(QPaintEvent *event) override;
 
 signals:
     void xChanged();

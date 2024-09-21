@@ -12,15 +12,27 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     ripplebutton.cpp \
-    sidebar.cpp
+    sidebar.cpp \
+    title_bar/qwinwidget.cpp \
+    title_bar/widget.cpp \
+    title_bar/winnativewindow.cpp
 
 HEADERS += \
     mainwindow.hpp \
     ripplebutton.hpp \
-    sidebar.hpp
+    sidebar.hpp \
+    title_bar/OSXHideTitleBar.h \
+    title_bar/QWinWidget.h \
+    title_bar/widget.h \
+    title_bar/winnativewindow.h
 
 FORMS += \
     mainwindow.ui
+
+
+LIBS += -L"C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib" \
+        -ldwmapi \
+        -lgdi32
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

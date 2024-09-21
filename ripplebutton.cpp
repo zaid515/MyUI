@@ -87,6 +87,14 @@ RippleButton::RippleButton(QWidget *parent)
     setParent(parent);
 }
 
+RippleButton::RippleButton(const QString &text, QWidget *parent)
+    : QPushButton(text, parent)
+{}
+
+RippleButton::RippleButton(const QIcon &icon, const QString &text, QWidget *parent)
+    : QPushButton(icon, text, parent)
+{}
+
 RippleButton::~RippleButton()
 {
     //frees memory
