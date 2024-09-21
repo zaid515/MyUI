@@ -1,10 +1,10 @@
 #ifndef SIDEBAR_HPP
 #define SIDEBAR_HPP
 
+#include <QEvent>
+#include <QPainter>
 #include <QPropertyAnimation>
 #include <QPushButton>
-#include <QStyleOptionButton>
-#include <QStylePainter>
 #include <QWidget>
 
 namespace MyUI {

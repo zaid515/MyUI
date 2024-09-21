@@ -17,10 +17,10 @@
    <widget class="RippleButton" name="openSideBarBT">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>250</y>
-      <width>111</width>
-      <height>61</height>
+      <x>760</x>
+      <y>260</y>
+      <width>221</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -30,46 +30,26 @@
 	color: #ffffff;
 	border-style: solid;
 	border-width: 1px;
-	border-radius: 0px;
-	
+	border-radius: 50px;
 	border-color: rgb(35, 35, 35);
 	padding: 5px;
-	
 	font: 15pt &quot;Microsoft Sans Serif&quot;;
 
 }
 
-
-QPushButton::disabled
-{
-	background-color: #404040;
-	color: #656565;
-	border-color: #051a39;
-
-}
-
-
 QPushButton::hover
 {
 	
-	background-color: rgb(85, 85, 85);
+	background-color: rgb(40,40,40);
 	color: rgb(255,255,255);
 	border-style: solid;
-	border-width: 1px;
-	border-radius: 3px;
-	border-color: #051a39;
+	border-radius: 50px;
 	padding: 5px;
 
-}
-
-</string>
+}</string>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="Resources.qrc">
-      <normaloff>:/new/prefix1/Screenshot 2024-09-18 134211.png</normaloff>:/new/prefix1/Screenshot 2024-09-18 134211.png</iconset>
+     <string>push</string>
     </property>
     <property name="iconSize">
      <size>
@@ -96,10 +76,10 @@ QPushButton::hover
     <widget class="SideBar" name="widget" native="true">
      <property name="geometry">
       <rect>
-       <x>-130</x>
-       <y>0</y>
-       <width>165</width>
-       <height>661</height>
+       <x>0</x>
+       <y>530</y>
+       <width>611</width>
+       <height>122</height>
       </rect>
      </property>
      <property name="minimumSize">
@@ -108,9 +88,9 @@ QPushButton::hover
        <height>2</height>
       </size>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="RippleButton" name="pushButton_3">
+       <widget class="RippleButton" name="pushButton_4">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -118,7 +98,7 @@ QPushButton::hover
          </size>
         </property>
         <property name="text">
-         <string>product</string>
+         <string>Quantity</string>
         </property>
        </widget>
       </item>
@@ -163,7 +143,7 @@ QPushButton::hover
        </widget>
       </item>
       <item>
-       <widget class="RippleButton" name="pushButton_4">
+       <widget class="RippleButton" name="pushButton_3">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -171,52 +151,21 @@ QPushButton::hover
          </size>
         </property>
         <property name="text">
-         <string>Quantity</string>
+         <string>product</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </widget>
-   <widget class="RippleButton" name="pushButton_7">
+   <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>390</y>
-      <width>151</width>
-      <height>100</height>
+      <x>880</x>
+      <y>550</y>
+      <width>83</width>
+      <height>29</height>
      </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>50</width>
-      <height>100</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton
-{
-	background-color: rgb(35, 35, 35);
-	color: #ffffff;
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 50px;
-	border-color: rgb(35, 35, 35);
-	padding: 5px;
-	font: 15pt &quot;Microsoft Sans Serif&quot;;
-
-}
-
-QPushButton::hover
-{
-	
-	background-color: rgb(40,40,40);
-	color: rgb(255,255,255);
-	border-style: solid;
-	border-radius: 50px;
-	padding: 5px;
-
-}</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -237,8 +186,6 @@ QPushButton::hover
    <header>ripplebutton.hpp</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

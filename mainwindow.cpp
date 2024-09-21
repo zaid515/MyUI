@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->pushButton->setRippleColor(Qt::lightGray);
     ui->widget->setOpenButtton(ui->openSideBarBT);
-    ui->widget->setLayout(MyUI::Layout::Vertical);
-    ui->widget->setOpenDirction(MyUI::OpenDirction::ToRight);
+    ui->widget->setLayout(MyUI::Layout::Horizontal);
+    ui->widget->setOpenDirction(MyUI::OpenDirction::ToBottom);
 }
 
 MainWindow::~MainWindow()

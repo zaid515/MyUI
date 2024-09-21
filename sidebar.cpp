@@ -138,8 +138,8 @@ void SideBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    // QWidget::paintEvent(event);
-    // QPainter painter(this);
-    // painter.setRenderHint(QPainter::Antialiasing);
-    // painter.fillRect(this->rect(), Qt::red);
+    QWidget::paintEvent(event);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.fillRect(this->rect(), Qt::red);
 }
