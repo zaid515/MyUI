@@ -2,6 +2,7 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include "title_bar/QWinWidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +21,10 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_openSideBarBT_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QWinWidget win;
 };
 #endif // MAINWINDOW_HPP

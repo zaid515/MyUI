@@ -67,8 +67,8 @@ public:
     void show();
     void center();
     void showCentered();
+    void setGeometry(const QRect &rect);
     void setGeometry(int x, int y, int w, int h);
-
     HWND getParentWindow() const;
 
 public slots:
@@ -79,7 +79,6 @@ public slots:
 protected:
     void childEvent( QChildEvent *e ) override;
     bool eventFilter( QObject *o, QEvent *e ) override;
-
     bool focusNextPrevChild(bool next) override;
     void focusInEvent(QFocusEvent *e) override;
 
@@ -101,9 +100,7 @@ private:
 
     void saveFocus();
     void resetFocus();
-
-
-
+    QWidget *temp;
 };
 
 #endif // QWINWIDGET_H

@@ -257,6 +257,14 @@ void QWinWidget::showCentered()
     show();
 }
 
+void QWinWidget::setGeometry(const QRect &rect)
+{
+    p_ParentWinNativeWindow->setGeometry(rect.x() * window()->devicePixelRatio(),
+                                         rect.y() * window()->devicePixelRatio(),
+                                         rect.width() * window()->devicePixelRatio(),
+                                         rect.height() * window()->devicePixelRatio());
+}
+
 void QWinWidget::setGeometry(int x, int y, int w, int h)
 {
     p_ParentWinNativeWindow->setGeometry(x * window()->devicePixelRatio()
