@@ -139,7 +139,6 @@ QWinWidget::QWinWidget(QWidget *parent)
 		TOOLBARHEIGHT = p_Widget->toolBar->height() * window()->devicePixelRatio();
 	}
 
-
     //You need to keep the native window in sync with the Qt window & children, so wire min/max/close buttons to 
 	//slots inside of QWinWidget. QWinWidget can then talk with the native window as needed 
 	if (p_Widget->minimizeButton)
@@ -156,13 +155,10 @@ QWinWidget::QWinWidget(QWidget *parent)
 		connect(p_Widget->closeButton, &QPushButton::clicked, this, &QWinWidget::onCloseButtonClicked);
 	}
 
-	
-
     //Send the parent native window a WM_SIZE message to update the widget size 
     SendMessage(m_ParentNativeWindowHandle, WM_SIZE, 0, 0);
 
 }
-
 
 /*!
     Destroys this object, freeing all allocated resources.

@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setParent(win.window());
     win.setGeometry(this->geometry());
     this->setGeometry(0, 30, this->geometry().width(), this->geometry().height());
-    //connect(&win, &QWinWidget, this, [=]() { qDebug() << "zaid"; });
+    connect(&win, &QWinWidget::resizeEvent, this, [=]() { this->resize(win.size()); });
     win.show();
 }
 
@@ -30,7 +30,4 @@ void MainWindow::on_pushButton_clicked()
     ui->widget->openSideBar();
 }
 
-void MainWindow::on_openSideBarBT_clicked()
-{
-    this->resize(win.size());
-}
+void MainWindow::on_openSideBarBT_clicked() {}

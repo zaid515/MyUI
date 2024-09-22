@@ -15,7 +15,7 @@ WinNativeWindow::WinNativeWindow(const int x, const int y, const int width, cons
     HBRUSH windowBackground = CreateSolidBrush(RGB(255, 255, 255));
 
     HINSTANCE hInstance = GetModuleHandle(nullptr);
-    WNDCLASSEX wcx = { 0 };
+    WNDCLASSEX wcx = {};
 
     wcx.cbSize = sizeof(WNDCLASSEX);
     wcx.style = CS_HREDRAW | CS_VREDRAW;

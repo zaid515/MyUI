@@ -1,11 +1,9 @@
 #ifndef WINNATIVEWINDOW_H
 #define WINNATIVEWINDOW_H
 
-
+#include <QWidget>
 #include "Windows.h"
 #include "Windowsx.h"
-
-#include <QWidget>
 
 class WinNativeWindow
 {
@@ -48,8 +46,8 @@ private:
     sizeType minimumSize;
     sizeType maximumSize;
 
-
-    DWORD aero_borderless = WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_THICKFRAME | WS_CLIPCHILDREN;
+    DWORD aero_borderless = WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX
+                            | WS_THICKFRAME | WS_CLIPCHILDREN;
 };
 
 

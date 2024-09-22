@@ -77,8 +77,8 @@ public slots:
     void onCloseButtonClicked();
 
 protected:
-    void childEvent( QChildEvent *e ) override;
-    bool eventFilter( QObject *o, QEvent *e ) override;
+    void childEvent(QChildEvent *e) override;
+    bool eventFilter(QObject *o, QEvent *e) override;
     bool focusNextPrevChild(bool next) override;
     void focusInEvent(QFocusEvent *e) override;
 
@@ -100,7 +100,8 @@ private:
 
     void saveFocus();
     void resetFocus();
-    QWidget *temp;
+signals:
+    void resizeEvent(QResizeEvent *e) override;
 };
 
 #endif // QWINWIDGET_H
