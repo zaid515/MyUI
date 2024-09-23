@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1006</width>
-    <height>833</height>
+    <width>1195</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="RippleButton" name="openSideBarBT">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>290</y>
-      <width>301</width>
-      <height>241</height>
+      <x>970</x>
+      <y>130</y>
+      <width>221</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -70,7 +70,7 @@ QPushButton::hover
       <x>0</x>
       <y>0</y>
       <width>163</width>
-      <height>841</height>
+      <height>661</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -118,24 +118,6 @@ border-radius: 0px;</string>
       </widget>
      </item>
      <item>
-      <widget class="RippleButton" name="pushButton_8">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;
-</string>
-       </property>
-       <property name="text">
-        <string>Quantity</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="RippleButton" name="pushButton_5">
        <property name="minimumSize">
         <size>
@@ -149,24 +131,6 @@ border-radius: 0px;</string>
        </property>
        <property name="text">
         <string>product</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="RippleButton" name="pushButton_6">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;
-</string>
-       </property>
-       <property name="text">
-        <string>Quantity</string>
        </property>
       </widget>
      </item>
@@ -221,22 +185,187 @@ border-radius: 0px;
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="offofofoofo">
+   <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>120</y>
-      <width>211</width>
-      <height>131</height>
+      <x>210</x>
+      <y>30</y>
+      <width>751</width>
+      <height>631</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>21</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
+    <property name="styleSheet">
+     <string notr="true">QTableView
+{
+    
+	background-color: rgb(35,35,35);
+    border: 1px solid #32414B;
+    color: rgb(255,255,255);
+    gridline-color:  rgb(0,0,0);
+    outline : 0;
+}
+
+
+QTableView::disabled
+{
+    background-color: #242526;
+    border: 1px solid #32414B;
+    color: #656565;
+    gridline-color: #656565;
+    outline : 0;
+
+}
+
+
+QTableView::item:hover 
+{
+    background-color: rgb(85,85,85);
+    color: rgb(255,255,255);
+
+}
+
+
+QTableView::item:selected 
+{
+    background-color: rgb(0,0,0);
+    border: 1px solid rgb(255,235,12);
+    color: rgb(255,235,12);
+
+}
+
+
+QTableView::item:selected:disabled
+{
+    background-color: #1a1b1c;
+    border: 2px solid #525251;
+    color: #656565;
+
+}
+
+
+QTableCornerButton::section
+{
+	
+	
+    background-color: rgb(255,235,12);
+    color: rgb(255,255,255);
+
+}
+
+
+QHeaderView::section
+{
+    background-color: rgb(255,235,12);
+    color: rgb(0,0,0);
+    text-align: left;
+	padding: 4px;
+	font: 12pt &quot;Segoe UI&quot;;
+}
+
+
+QHeaderView::section:disabled
+{
+    background-color: rgb(0,0,0);
+    color: #656565;
+
+}
+
+
+QHeaderView::section:checked
+{
+	
+	border-color: rgb(0, 0, 0);
+    color: #fff;
+    background-color:  rgb(25,25,25);
+
+}
+
+
+QHeaderView::section:checked:disabled
+{
+    color: #656565;
+    background-color: #525251;
+
+}
+
+
+QHeaderView::section::vertical::first,
+QHeaderView::section::vertical::only-one
+{
+    border-top: 1px solid #353635;
+}
+
+
+QHeaderView::section::vertical
+{
+    border-top: 1px solid #353635;
+
+}
+
+
+QHeaderView::section::horizontal::first,
+QHeaderView::section::horizontal::only-one
+{
+    border-left: 1px solid #353635;
+
+}
+
+
+QHeaderView::section::horizontal
+{
+    border-left: 1px solid #353635;
+
+}
+QScrollBar:vertical
+{
+    background-color: #3d3d3d;
+    width: 13px;
+	border-radius: 5px;
+    margin: 16px 0 16px 0;
+    border: 1px solid #222222;
+
+}
+
+
+QScrollBar::handle:vertical
+{
+    background-color: rgb(255,235,12);
+	width: 5px;
+    min-height: 20px;
+	border-radius: 5px;
+}
+
+
+QScrollBar::add-line:vertical
+{
+   background: none;
+}
+
+
+QScrollBar::sub-line:vertical
+{
+   background: none;
+}
+
+
+QScrollBar::up-arrow:vertical
+{
+    background: none;
+}
+
+
+QScrollBar::down-arrow:vertical
+{
+   background: none;
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+    background: none;
+
+}
+</string>
     </property>
    </widget>
   </widget>

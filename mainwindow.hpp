@@ -2,6 +2,12 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <windows.h>
+
+#include "popupdialog.hpp"
 #include "title_bar/QWinWidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -19,14 +25,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_openSideBarBT_clicked();
-
-    void on_offofofoofo_clicked();
 
 private:
     Ui::MainWindow *ui;
     QWinWidget win;
+    QSqlQueryModel model;
 };
 #endif // MAINWINDOW_HPP

@@ -1,7 +1,5 @@
 #include "mainwindow.hpp"
-#include "popupdialog.hpp"
 #include "ui_mainwindow.h"
-#include <windows.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,14 +11,31 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget->setLayout(MyUI::Layout::Vertical);
     ui->widget->setOpenDirction(MyUI::OpenDirction::ToRight);
 
+    ui->openSideBarBT->setRippleColor(Qt::lightGray);
+
     this->setParent(win.window());
     win.setGeometry(this->geometry());
     this->setGeometry(0, 30, this->geometry().width(), this->geometry().height());
     connect(&win, &QWinWidget::resizeEvent, this, [=]() { this->resize(win.size()); });
     win.show();
 
-    PopUpDialog *p = new PopUpDialog(this);
-    p->show();
+    PopUpDialog p(this);
+    p.show();
+
+    QSqlDatabase database = QSqlDatabase::addDatabase("QPSQL");
+    database.setUserName("postgres");
+    database.setPassword("zqid45mroot");
+    database.setDatabaseName("postgres");
+    database.setHostName("localhost");
+
+    if (database.open()) {
+        qDebug() << "database opened";
+        model.setQuery("SELECT * FROM products_tb");
+        ui->tableView->setModel(&model);
+        ui->tableView->show();
+    } else {
+        qDebug() << "database not open";
+    }
 }
 
 MainWindow::~MainWindow()
@@ -29,18 +44,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    ui->widget->openSideBar();
-    win.onMaximizeButtonClicked();
-}
-
 void MainWindow::on_openSideBarBT_clicked()
 {
     win.onMaximizeButtonClicked();
-}
-
-void MainWindow::on_offofofoofo_clicked()
-{
-    win.onMinimizeButtonClicked();
 }

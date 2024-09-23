@@ -26,7 +26,6 @@ PopUpDialog::~PopUpDialog()
 
 QPoint PopUpDialog::centerDialog()
 {
-    qDebug() << this->parentWidget()->height();
     return QPoint((this->parentWidget()->width() / 2) - (ui->dialog->width() / 2),
                   (this->parentWidget()->height() / 2) - (ui->dialog->height() / 2));
 }
