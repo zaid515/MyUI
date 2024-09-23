@@ -95,13 +95,13 @@ private:
     HWND _prevFocus;
     bool _reenableParent;
 
-    int BORDERWIDTH = 6;		//Adjust this as you wish for # of pixels on the edges to show resize handles
+    int BORDERWIDTH = 6; //Adjust this as you wish for # of pixels on the edges to show resize handles
     int TOOLBARHEIGHT = 40; //Adjust this as you wish for # of pixels from the top to allow dragging the window
 
     void saveFocus();
     void resetFocus();
 signals:
-    void resizeEvent(QResizeEvent *e) override;
+    void resizeEvent(QResizeEvent *e);
 };
 
 #endif // QWINWIDGET_H

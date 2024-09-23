@@ -107,9 +107,9 @@ QWinWidget::QWinWidget(QWidget *parent)
     {
         setWindowFlags(Qt::FramelessWindowHint);
         setProperty("_q_embedded_native_parent_handle", (WId)m_ParentNativeWindowHandle);
-        SetWindowLong((HWND)winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
-        
-        SetParent((HWND)winId(), m_ParentNativeWindowHandle);
+        SetWindowLong((HWND) winId(), GWL_STYLE, WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
+
+        SetParent((HWND) winId(), m_ParentNativeWindowHandle);
         QEvent e(QEvent::EmbeddingControl);
         QApplication::sendEvent(this, &e);
     }
@@ -128,6 +128,8 @@ QWinWidget::QWinWidget(QWidget *parent)
     p_Widget = new Widget(this);
     m_Layout.addWidget(p_Widget);
     p_Widget->setParent(this, Qt::Widget);
+    p_Widget->setContentsMargins(0, 0, 0, 0);
+    p_Widget->layout()->setSpacing(0);
     p_Widget->setVisible(true);
 
     //Update the BORDERWIDTH value if needed for HiDPI displays

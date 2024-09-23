@@ -23,6 +23,8 @@ private slots:
 
     void on_openSideBarBT_clicked();
 
+    void on_offofofoofo_clicked();
+
 private:
     Ui::MainWindow *ui;
     QWinWidget win;

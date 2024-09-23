@@ -21,6 +21,7 @@ Widget::Widget(QWidget *parent)
 	toolBar = new QToolBar(this);
     toolBar->setMovable(false);
     toolBar->setFloatable(false);
+    toolBar->layout()->setContentsMargins(0, 0, 0, 0);
     addToolBar(toolBar);
 
     //Create a transparent-to-mouse-events widget that pads right for a fixed width equivalent to min/max/close buttons
@@ -37,8 +38,6 @@ Widget::Widget(QWidget *parent)
     QFont font = titleLabel->font();
     font.setPointSize(12);
     titleLabel->setFont(font);
-    titleLabel->setMinimumHeight(30);
-    titleLabel->setAlignment(Qt::AlignTop);
     titleLabel->setFixedWidth(160);
 
     //Set it transparent to mouse events such that you can click and drag when moused over the label
@@ -63,27 +62,37 @@ Widget::Widget(QWidget *parent)
 
 
 	//Create the min/max/close buttons
-    minimizeButton = new RippleButton("-");
-    maximizeButton = new RippleButton("O");
-    closeButton = new RippleButton("X");
+    minimizeButton = new RippleButton(QIcon(":/themeIcons/Minimize.png"), "");
+    maximizeButton = new RippleButton(QIcon(":/themeIcons/Maximize.png"), "");
+    closeButton = new RippleButton(QIcon(":/themeIcons/Close.png"), "");
+
+    minimizeButton->setIconSize(QSize(15, 15));
+    maximizeButton->setIconSize(QSize(10, 10));
+    closeButton->setIconSize(QSize(10, 10));
 
     const QString style
         = "QPushButton{background-color: rgb(255, 255, 255);color: #000000;padding: "
           "5px;border-radius: 0px;font: 15pt "
           "Microsoft Sans Serif"
-          ";}QPushButton::hover{background-color: rgb(200, 200, "
-          "200);color:rgb(255,255,255);border-radius: 0px;padding: 5px;}";
+          ";}QPushButton::hover{background-color: rgb(240, 240, "
+          "240);color:rgb(0,0,0);border-radius: 0px;padding: 5px;}";
 
     minimizeButton->setStyleSheet(style);
     maximizeButton->setStyleSheet(style);
-    closeButton->setStyleSheet(style);
+    closeButton->setStyleSheet(
+        "QPushButton{background-color: rgb(255, 255, 255);color: #000000;padding: "
+        "5px;border-radius: 0px;font: 15pt "
+        "Microsoft Sans Serif"
+        ";}QPushButton::hover{background-color: rgb(240, 0, "
+        "0);color:rgb(255,255,255);border-radius: 0px;padding: 5px;}");
 
     maximizeButton->setCheckable(true);
 
-    minimizeButton->setMinimumHeight(30);
-    maximizeButton->setMinimumHeight(30);
-    closeButton->setMinimumHeight(30);
-    toolBar->setMinimumHeight(30);
+    minimizeButton->setFixedSize(48, 30);
+    maximizeButton->setFixedSize(48, 30);
+    closeButton->setFixedSize(48, 30);
+    toolBar->setMinimumHeight(32);
+    toolBar->setGeometry(0, 0, toolBar->width(), toolBar->height());
     toolBar->addWidget(minimizeButton);
     toolBar->addWidget(maximizeButton);
     toolBar->addWidget(closeButton);

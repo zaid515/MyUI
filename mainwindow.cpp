@@ -1,4 +1,5 @@
 #include "mainwindow.hpp"
+#include "popupdialog.hpp"
 #include "ui_mainwindow.h"
 #include <windows.h>
 
@@ -17,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     this->setGeometry(0, 30, this->geometry().width(), this->geometry().height());
     connect(&win, &QWinWidget::resizeEvent, this, [=]() { this->resize(win.size()); });
     win.show();
+
+    PopUpDialog *p = new PopUpDialog(this);
+    p->show();
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +32,15 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     ui->widget->openSideBar();
+    win.onMaximizeButtonClicked();
 }
 
-void MainWindow::on_openSideBarBT_clicked() {}
+void MainWindow::on_openSideBarBT_clicked()
+{
+    win.onMaximizeButtonClicked();
+}
+
+void MainWindow::on_offofofoofo_clicked()
+{
+    win.onMinimizeButtonClicked();
+}

@@ -221,6 +221,24 @@ border-radius: 0px;
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="offofofoofo">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>120</y>
+      <width>211</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>21</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
