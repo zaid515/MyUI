@@ -45,7 +45,7 @@ WinNativeWindow::WinNativeWindow(const int x, const int y, const int width, cons
     SetWindowLongPtr(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(this));
 
     //This code may be required for aero shadows on some versions of Windows
-    const MARGINS aero_shadow_on = {1, 1, 1, 1};
+    const MARGINS aero_shadow_on = {0, 0, 0, 0};
     DwmExtendFrameIntoClientArea(hWnd, &aero_shadow_on);
 
     SetWindowPos(hWnd, 0, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE);

@@ -67,7 +67,7 @@ QPushButton::hover
    <widget class="SideBar" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-170</x>
       <y>0</y>
       <width>163</width>
       <height>661</height>
@@ -84,7 +84,7 @@ QPushButton::hover
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="RippleButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_3">
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -101,7 +101,7 @@ border-radius: 0px;</string>
       </widget>
      </item>
      <item>
-      <widget class="RippleButton" name="pushButton_7">
+      <widget class="QPushButton" name="pushButton_7">
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -118,7 +118,7 @@ border-radius: 0px;</string>
       </widget>
      </item>
      <item>
-      <widget class="RippleButton" name="pushButton_5">
+      <widget class="QPushButton" name="pushButton_5">
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -166,7 +166,7 @@ QPushButton::hover
       </widget>
      </item>
      <item>
-      <widget class="RippleButton" name="pushButton_4">
+      <widget class="QPushButton" name="pushButton_4">
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -368,19 +368,29 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
 </string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>310</y>
+      <width>171</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SideBar</class>
-   <extends>QWidget</extends>
-   <header location="global">sidebar.hpp</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>RippleButton</class>
    <extends>QPushButton</extends>
-   <header>ripplebutton.hpp</header>
+   <header>UI/ripplebutton.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>SideBar</class>
+   <extends>QWidget</extends>
+   <header>UI/sidebar.hpp</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

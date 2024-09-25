@@ -2,12 +2,13 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include <QPointer>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <windows.h>
 
-#include "popupdialog.hpp"
+#include "startdialog.hpp"
 #include "title_bar/QWinWidget.h"
 
 QT_BEGIN_NAMESPACE

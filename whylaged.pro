@@ -15,23 +15,28 @@ win32 {
   SOURCES += \
       main.cpp \
       mainwindow.cpp \
-      ripplebutton.cpp \
-      sidebar.cpp \
+      startdialog.cpp \
+      UI/ripplebutton.cpp \
+      UI/sidebar.cpp \
+      UI/popupdialog.cpp \
       title_bar/qwinwidget.cpp \
       title_bar/widget.cpp \
       title_bar/winnativewindow.cpp
 
   HEADERS += \
       mainwindow.hpp \
-      ripplebutton.hpp \
-      sidebar.hpp \
+      startdialog.hpp \
+      UI/ripplebutton.hpp \
+      UI/sidebar.hpp \
+      UI/popupdialog.hpp \
       title_bar/OSXHideTitleBar.h \
       title_bar/QWinWidget.h \
       title_bar/widget.h \
       title_bar/winnativewindow.h
 
   FORMS += \
-      mainwindow.ui
+      mainwindow.ui \
+      startdialog.ui
 
 
   LIBS += -L"C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib" \
@@ -45,13 +50,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
   Resources.qrc
-
-HEADERS += \
-  popupdialog.hpp
-
-SOURCES += \
-  popupdialog.cpp
-
-FORMS += \
-  popupdialog.ui
 

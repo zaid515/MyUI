@@ -115,7 +115,7 @@ QWinWidget::QWinWidget(QWidget *parent)
     }
 
     //Pass along our window handle & widget pointer to WinFramelessWidget so we can exchange messages
-    p_ParentWinNativeWindow->childWindow = (HWND)winId();
+    p_ParentWinNativeWindow->childWindow = (HWND) winId();
     p_ParentWinNativeWindow->childWidget = this;
 
     //Clear margins & spacing & add the layout to prepare for the MainAppWidget
@@ -128,8 +128,6 @@ QWinWidget::QWinWidget(QWidget *parent)
     p_Widget = new Widget(this);
     m_Layout.addWidget(p_Widget);
     p_Widget->setParent(this, Qt::Widget);
-    p_Widget->setContentsMargins(0, 0, 0, 0);
-    p_Widget->layout()->setSpacing(0);
     p_Widget->setVisible(true);
 
     //Update the BORDERWIDTH value if needed for HiDPI displays
@@ -541,6 +539,7 @@ bool QWinWidget::focusNextPrevChild(bool next)
         if (!curFocus->isWindow()) {
             QWidget *nextFocus = curFocus->nextInFocusChain();
             QWidget *prevFocus = 0;
+            Q_UNUSED(prevFocus)
             QWidget *topLevel = 0;
             while (nextFocus != curFocus) {
                 if (nextFocus->focusPolicy() & Qt::TabFocus) {

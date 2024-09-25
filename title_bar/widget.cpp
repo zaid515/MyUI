@@ -33,7 +33,7 @@ Widget::Widget(QWidget *parent)
     toolBar->addWidget(btnSpacer);
 
     //Create a title label just because
-    QLabel *titleLabel = new QLabel("MyUI");
+    QLabel *titleLabel = new QLabel("              MyUI");
     titleLabel->setStyleSheet("color: rgb(0,0,0);");
     QFont font = titleLabel->font();
     font.setPointSize(12);
@@ -56,12 +56,11 @@ Widget::Widget(QWidget *parent)
     rightSpacer->setStyleSheet("background-color: none; border: none;");
 
     //Add spacers & title label
-	toolBar->addWidget(leftSpacer);
-	toolBar->addWidget(titleLabel);
-	toolBar->addWidget(rightSpacer);
+    toolBar->addWidget(leftSpacer);
+    toolBar->addWidget(titleLabel);
+    toolBar->addWidget(rightSpacer);
 
-
-	//Create the min/max/close buttons
+    //Create the min/max/close buttons
     minimizeButton = new RippleButton(QIcon(":/themeIcons/Minimize.png"), "");
     maximizeButton = new RippleButton(QIcon(":/themeIcons/Maximize.png"), "");
     closeButton = new RippleButton(QIcon(":/themeIcons/Close.png"), "");
@@ -92,16 +91,17 @@ Widget::Widget(QWidget *parent)
     maximizeButton->setFixedSize(48, 30);
     closeButton->setFixedSize(48, 30);
     toolBar->setMinimumHeight(32);
-    toolBar->setGeometry(0, 0, toolBar->width(), toolBar->height());
+    toolBar->setMinimumWidth(this->width());
     toolBar->addWidget(minimizeButton);
     toolBar->addWidget(maximizeButton);
     toolBar->addWidget(closeButton);
+    toolBar->layout()->setAlignment(titleLabel, Qt::AlignCenter);
     toolBar->layout()->setAlignment(minimizeButton, Qt::AlignTop);
-	toolBar->layout()->setAlignment(maximizeButton, Qt::AlignTop);
-	toolBar->layout()->setAlignment(closeButton, Qt::AlignTop);
+    toolBar->layout()->setAlignment(maximizeButton, Qt::AlignTop);
+    toolBar->layout()->setAlignment(closeButton, Qt::AlignTop);
 
-	//An actual app should use icons for the buttons instead of text
-	//and style the different button states / widget margins in css
+    //An actual app should use icons for the buttons instead of text
+    //and style the different button states / widget margins in css
 
 #endif
 

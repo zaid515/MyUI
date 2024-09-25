@@ -19,9 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&win, &QWinWidget::resizeEvent, this, [=]() { this->resize(win.size()); });
     win.show();
 
-    PopUpDialog p(this);
-    p.show();
-
     QSqlDatabase database = QSqlDatabase::addDatabase("QPSQL");
     database.setUserName("postgres");
     database.setPassword("zqid45mroot");
@@ -47,4 +44,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_openSideBarBT_clicked()
 {
     win.onMaximizeButtonClicked();
+    StartDialog *d = new StartDialog(this);
+    d->show();
+    qDebug() << "showed";
 }
