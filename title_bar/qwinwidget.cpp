@@ -530,6 +530,12 @@ void QWinWidget::focusInEvent(QFocusEvent *e)
     }
 }
 
+void QWinWidget::resizeEvent(QResizeEvent *e)
+{
+    QWidget::resizeEvent(e);
+    emit sizeChanged();
+}
+
 /*! \reimp
 */
 bool QWinWidget::focusNextPrevChild(bool next)

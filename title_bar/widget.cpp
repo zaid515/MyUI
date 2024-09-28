@@ -1,5 +1,6 @@
 #include "widget.h"
 
+#include <QGraphicsEffect>
 #include <QLabel>
 #include <QLayout>
 
@@ -13,15 +14,15 @@ Widget::Widget(QWidget *parent)
     setAutoFillBackground(true);
 	setPalette(Pal);
 
-
-	//Windows example of adding a toolbar + min/max/close buttons
+    //Windows example of adding a toolbar + min/max/close buttons
 #ifdef _WIN32
 
 	//Add the toolbar
-	toolBar = new QToolBar(this);
+    toolBar = new QToolBar(this);
     toolBar->setMovable(false);
     toolBar->setFloatable(false);
     toolBar->layout()->setContentsMargins(0, 0, 0, 0);
+    toolBar->setStyleSheet("background-color: none; border: none");
     addToolBar(toolBar);
 
     //Create a transparent-to-mouse-events widget that pads right for a fixed width equivalent to min/max/close buttons

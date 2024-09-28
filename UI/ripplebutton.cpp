@@ -151,8 +151,8 @@ void RippleButton::mousePressEvent(QMouseEvent *event)
     //init the radius animation
     float maxRadius = std::sqrt(std::pow(width(), 2) + std::pow(height(), 2));
     QPropertyAnimation *radiusAnimation = new QPropertyAnimation(ripple.get(), "radius");
-    radiusAnimation->setEasingCurve(QEasingCurve::InQuad);
-    radiusAnimation->setDuration(1000);
+    radiusAnimation->setEasingCurve(QEasingCurve::OutBack);
+    radiusAnimation->setDuration(1500);
     radiusAnimation->setStartValue(0);
     radiusAnimation->setEndValue(maxRadius);
     radiusAnimations_.append(radiusAnimation);
@@ -167,7 +167,7 @@ void RippleButton::mousePressEvent(QMouseEvent *event)
 
     //init the opacity animation
     QPropertyAnimation *opacityAnimation = new QPropertyAnimation(ripple.get(), "opacity");
-    opacityAnimation->setEasingCurve(QEasingCurve::OutQuad);
+    opacityAnimation->setEasingCurve(QEasingCurve::Linear);
     opacityAnimation->setDuration(800);
     opacityAnimation->setStartValue(ripple->opacity());
     opacityAnimation->setEndValue(0.0);

@@ -18,7 +18,7 @@ public:
 
     //If you want to enable dragging the window when the mouse is over top of, say, a QToolBar, 
 	//then look at how QWinWidget uses this
-	QToolBar* toolBar = nullptr;
+    QToolBar *toolBar = nullptr;
 
 signals:
 

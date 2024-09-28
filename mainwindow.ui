@@ -43,13 +43,29 @@
 QPushButton::hover
 {
 	
+	
+
+}
+
+QPushButton::disabled
+{
 	background-color: rgb(40,40,40);
 	color: rgb(255,255,255);
 	border-style: solid;
 	border-radius: 50px;
 	padding: 5px;
+}
 
-}</string>
+QPushButton::pressed
+{
+	background-color: rgb(40,40,40);
+	color: rgb(255,255,255);
+	border-style: solid;
+	border-radius: 50px;
+	padding: 5px;
+}
+
+</string>
     </property>
     <property name="text">
      <string>push</string>
@@ -194,188 +210,42 @@ border-radius: 0px;
       <height>631</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QTableView
-{
-    
-	background-color: rgb(35,35,35);
-    border: 1px solid #32414B;
-    color: rgb(255,255,255);
-    gridline-color:  rgb(0,0,0);
-    outline : 0;
-}
-
-
-QTableView::disabled
-{
-    background-color: #242526;
-    border: 1px solid #32414B;
-    color: #656565;
-    gridline-color: #656565;
-    outline : 0;
-
-}
-
-
-QTableView::item:hover 
-{
-    background-color: rgb(85,85,85);
-    color: rgb(255,255,255);
-
-}
-
-
-QTableView::item:selected 
-{
-    background-color: rgb(0,0,0);
-    border: 1px solid rgb(255,235,12);
-    color: rgb(255,235,12);
-
-}
-
-
-QTableView::item:selected:disabled
-{
-    background-color: #1a1b1c;
-    border: 2px solid #525251;
-    color: #656565;
-
-}
-
-
-QTableCornerButton::section
-{
-	
-	
-    background-color: rgb(255,235,12);
-    color: rgb(255,255,255);
-
-}
-
-
-QHeaderView::section
-{
-    background-color: rgb(255,235,12);
-    color: rgb(0,0,0);
-    text-align: left;
-	padding: 4px;
-	font: 12pt &quot;Segoe UI&quot;;
-}
-
-
-QHeaderView::section:disabled
-{
-    background-color: rgb(0,0,0);
-    color: #656565;
-
-}
-
-
-QHeaderView::section:checked
-{
-	
-	border-color: rgb(0, 0, 0);
-    color: #fff;
-    background-color:  rgb(25,25,25);
-
-}
-
-
-QHeaderView::section:checked:disabled
-{
-    color: #656565;
-    background-color: #525251;
-
-}
-
-
-QHeaderView::section::vertical::first,
-QHeaderView::section::vertical::only-one
-{
-    border-top: 1px solid #353635;
-}
-
-
-QHeaderView::section::vertical
-{
-    border-top: 1px solid #353635;
-
-}
-
-
-QHeaderView::section::horizontal::first,
-QHeaderView::section::horizontal::only-one
-{
-    border-left: 1px solid #353635;
-
-}
-
-
-QHeaderView::section::horizontal
-{
-    border-left: 1px solid #353635;
-
-}
-QScrollBar:vertical
-{
-    background-color: #3d3d3d;
-    width: 13px;
-	border-radius: 5px;
-    margin: 16px 0 16px 0;
-    border: 1px solid #222222;
-
-}
-
-
-QScrollBar::handle:vertical
-{
-    background-color: rgb(255,235,12);
-	width: 5px;
-    min-height: 20px;
-	border-radius: 5px;
-}
-
-
-QScrollBar::add-line:vertical
-{
-   background: none;
-}
-
-
-QScrollBar::sub-line:vertical
-{
-   background: none;
-}
-
-
-QScrollBar::up-arrow:vertical
-{
-    background: none;
-}
-
-
-QScrollBar::down-arrow:vertical
-{
-   background: none;
-}
-
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
-{
-    background: none;
-
-}
-</string>
+     <string notr="true">background-color: transperant;</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_2" native="true">
+   <widget class="QPushButton" name="zaidBt">
     <property name="geometry">
      <rect>
       <x>990</x>
-      <y>310</y>
-      <width>171</width>
-      <height>141</height>
+      <y>270</y>
+      <width>161</width>
+      <height>121</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transperant;</string>
+    </property>
+    <property name="text">
+     <string>zaid</string>
+    </property>
+   </widget>
+   <widget class="TextEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>450</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
    </widget>
   </widget>
@@ -391,6 +261,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
    <extends>QWidget</extends>
    <header>UI/sidebar.hpp</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TextEdit</class>
+   <extends>QLineEdit</extends>
+   <header>UI/textedit.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>

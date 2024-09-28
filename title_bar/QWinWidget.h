@@ -81,7 +81,7 @@ protected:
     bool eventFilter(QObject *o, QEvent *e) override;
     bool focusNextPrevChild(bool next) override;
     void focusInEvent(QFocusEvent *e) override;
-
+    void resizeEvent(QResizeEvent *e) override;
     bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result) override;
 
 private:
@@ -101,7 +101,7 @@ private:
     void saveFocus();
     void resetFocus();
 signals:
-    void resizeEvent(QResizeEvent *e);
+    void sizeChanged();
 };
 
 #endif // QWINWIDGET_H

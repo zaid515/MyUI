@@ -9,6 +9,7 @@ StartDialog::StartDialog(QWidget *parent)
 
     this->setGeometry(0, 30, parent->width(), parent->height());
     dialog = new PopUpDialog(this, ui->dialog);
+    this->setParent(parent->window());
 }
 
 StartDialog::~StartDialog()
@@ -16,7 +17,13 @@ StartDialog::~StartDialog()
     delete ui;
 }
 
+void StartDialog::resizeEvent(QResizeEvent *event)
+{
+    QDialog::resizeEvent(event);
+    dialog->centerDialog();
+}
+
 void StartDialog::on_pushButton_clicked()
 {
-    dialog->close(this);
+    this->close();
 }

@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <iostream>
 #include <windows.h>
 
 #include "startdialog.hpp"
@@ -32,5 +33,8 @@ private:
     Ui::MainWindow *ui;
     QWinWidget win;
     QSqlQueryModel model;
+
+signals:
+    void sizeChanged();
 };
 #endif // MAINWINDOW_HPP

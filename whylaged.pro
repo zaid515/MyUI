@@ -12,23 +12,26 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 win32 {
-  SOURCES += \
-      main.cpp \
-      mainwindow.cpp \
-      startdialog.cpp \
-      UI/ripplebutton.cpp \
-      UI/sidebar.cpp \
-      UI/popupdialog.cpp \
-      title_bar/qwinwidget.cpp \
-      title_bar/widget.cpp \
+  SOURCES +=                        \
+      main.cpp                      \
+      mainwindow.cpp                \
+      startdialog.cpp               \
+      UI/ripplebutton.cpp           \
+      UI/sidebar.cpp                \
+      UI/popupdialog.cpp            \
+      UI/textedit.cpp               \
+      title_bar/qwinwidget.cpp      \
+      title_bar/widget.cpp          \
       title_bar/winnativewindow.cpp
 
   HEADERS += \
+  UI/LineEdit.hpp \
       mainwindow.hpp \
       startdialog.hpp \
       UI/ripplebutton.hpp \
       UI/sidebar.hpp \
       UI/popupdialog.hpp \
+      UI/textedit.hpp     \
       title_bar/OSXHideTitleBar.h \
       title_bar/QWinWidget.h \
       title_bar/widget.h \
@@ -50,4 +53,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
   Resources.qrc
-

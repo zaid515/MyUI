@@ -16,6 +16,9 @@ public:
     explicit StartDialog(QWidget *parent = nullptr);
     ~StartDialog();
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private slots:
     void on_pushButton_clicked();
 

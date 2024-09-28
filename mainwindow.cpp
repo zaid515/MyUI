@@ -16,8 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
     this->setParent(win.window());
     win.setGeometry(this->geometry());
     this->setGeometry(0, 30, this->geometry().width(), this->geometry().height());
-    connect(&win, &QWinWidget::resizeEvent, this, [=]() { this->resize(win.size()); });
+    connect(&win, &QWinWidget::sizeChanged, this, [=]() { this->resize(win.size()); });
     win.show();
+
+    qDebug() << sizeof(uint8_t);
 
     QSqlDatabase database = QSqlDatabase::addDatabase("QPSQL");
     database.setUserName("postgres");
@@ -45,6 +47,6 @@ void MainWindow::on_openSideBarBT_clicked()
 {
     win.onMaximizeButtonClicked();
     StartDialog *d = new StartDialog(this);
+    connect(&win, &QWinWidget::sizeChanged, this, [=]() { d->resize(win.size()); });
     d->show();
-    qDebug() << "showed";
 }
