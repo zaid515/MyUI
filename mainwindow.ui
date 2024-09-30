@@ -10,24 +10,157 @@
     <height>663</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::FocusPolicy::NoFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(221, 221, 221);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="RippleButton" name="openSideBarBT">
-    <property name="geometry">
-     <rect>
-      <x>970</x>
-      <y>130</y>
-      <width>221</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="3">
+     <widget class="SideBar" name="widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>2</width>
+        <height>2</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 0, 4);</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(35,35,35);
+border-radius: 0px;</string>
+         </property>
+         <property name="text">
+          <string>product</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(35,35,35);
+border-radius: 0px;</string>
+         </property>
+         <property name="text">
+          <string>product</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(35,35,35);
+border-radius: 0px;</string>
+         </property>
+         <property name="text">
+          <string>product</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="RippleButton" name="pushButton">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton
+{
+	background-color: rgb(35, 35, 35);
+	color: #ffffff;
+	padding: 5px;
+	border-radius: 0px;
+	font: 15pt &quot;Microsoft Sans Serif&quot;;
+}
+
+QPushButton::hover
+{
+	background-color: rgb(85, 85, 85);
+	color: rgb(255,255,255);
+	border-radius: 0px;
+	padding: 5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>PushButton</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(35,35,35);
+border-radius: 0px;
+</string>
+         </property>
+         <property name="text">
+          <string>Quantity</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="3">
+     <widget class="QTableView" name="tableView">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="RippleButton" name="pushButton_2">
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+</string>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="RippleButton" name="openSideBarBT">
+      <property name="styleSheet">
+       <string notr="true">QPushButton
 {
 	background-color: rgb(35, 35, 35);
 	color: #ffffff;
@@ -66,188 +199,48 @@ QPushButton::pressed
 }
 
 </string>
-    </property>
-    <property name="text">
-     <string>push</string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>100</width>
-      <height>60</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="SideBar" name="widget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>-170</x>
-      <y>0</y>
-      <width>163</width>
-      <height>661</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>2</width>
-      <height>2</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 4);</string>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
+      </property>
+      <property name="text">
+       <string>push</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>100</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(23, 33, 43);</string>
+      </property>
+      <widget class="TextEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>201</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>11</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;</string>
-       </property>
-       <property name="text">
-        <string>product</string>
+        <string notr="true"/>
        </property>
       </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;</string>
-       </property>
-       <property name="text">
-        <string>product</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;</string>
-       </property>
-       <property name="text">
-        <string>product</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="RippleButton" name="pushButton">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton
-{
-	background-color: rgb(35, 35, 35);
-	color: #ffffff;
-	padding: 5px;
-	border-radius: 0px;
-	font: 15pt &quot;Microsoft Sans Serif&quot;;
-}
-
-QPushButton::hover
-{
-	background-color: rgb(85, 85, 85);
-	color: rgb(255,255,255);
-	border-radius: 0px;
-	padding: 5px;
-}</string>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(35,35,35);
-border-radius: 0px;
-</string>
-       </property>
-       <property name="text">
-        <string>Quantity</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>30</y>
-      <width>751</width>
-      <height>631</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>true</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transperant;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="zaidBt">
-    <property name="geometry">
-     <rect>
-      <x>990</x>
-      <y>270</y>
-      <width>161</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transperant;</string>
-    </property>
-    <property name="text">
-     <string>zaid</string>
-    </property>
-   </widget>
-   <widget class="TextEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>980</x>
-      <y>450</y>
-      <width>201</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-   </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

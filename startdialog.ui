@@ -19,8 +19,8 @@
   <widget class="QWidget" name="dialog" native="true">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>150</y>
+     <x>200</x>
+     <y>160</y>
      <width>391</width>
      <height>251</height>
     </rect>

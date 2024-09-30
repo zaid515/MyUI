@@ -8,8 +8,14 @@ TextEdit::TextEdit(QWidget *parent)
 {
     this->setAlignment(Qt::AlignBottom);
     this->setFrame(false);
-    activeRect = std::make_unique<MyUI::MyRect>();
-    ///this->setStyleSheet("background-color: transperant;");
+    this->setTextMargins(0, 0, 0, 5);
+    activeRect = new MyRect(0, 0, 0, 0);
+
+    a.setParent(this);
+    a.setText("Product name");
+    a.setAlignment(Qt::AlignLeft);
+    a.move(0, this->height() - 25);
+    a.show();
 }
 
 void TextEdit::paintEvent(QPaintEvent *event)
@@ -18,50 +24,56 @@ void TextEdit::paintEvent(QPaintEvent *event)
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
     p.setPen(Qt::NoPen);
-    //p.drawRect(QRect(0, 0, 200, 60));
-    p.setBrush(Qt::black);
+
+    p.setBrush(Qt::gray);
     p.drawRect(0, this->height() - 2, this->width(), 2);
 
     p.setBrush(Qt::blue);
-    p.drawRect(xPressPos, this->height() - 3, activeRect->getWidth(), 3);
+    p.drawRect(xPressPos - (activeRect->getWidth() / 2),
+               this->height() - 3,
+               activeRect->getWidth(),
+               3);
 }
 
 void TextEdit::mousePressEvent(QMouseEvent *event)
 {
     QLineEdit::mousePressEvent(event);
-    setActive(true);
 
-    xPressPos = this->width() / 2;
-
-    QPropertyAnimation *p = new QPropertyAnimation(activeRect.get(), "width");
-    p->setEasingCurve(QEasingCurve::OutBack);
-    p->setDuration(3000);
-    p->setStartValue(0);
-    p->setEndValue(this->width() + 100);
-
-    connect(p, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
-    connect(p, &QPropertyAnimation::finished, this, [=]() { delete p; });
-
-    p->start();
+    if (!active) {
+        xPressPos = event->pos().x();
+        QPointer<QPropertyAnimation> p = new QPropertyAnimation();
+        p->setEasingCurve(QEasingCurve::OutQuad);
+        p->setTargetObject(activeRect);
+        p->setPropertyName("width");
+        p->setDuration(750);
+        p->setStartValue(0);
+        p->setEndValue(this->width() + this->width());
+        p->start();
+        connect(p, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
+        connect(p, &QPropertyAnimation::finished, this, [=]() { delete p; });
+        setActive(true);
+    }
 }
 
 void TextEdit::focusOutEvent(QFocusEvent *event)
 {
     QLineEdit::focusOutEvent(event);
+    activeRect->setWidth(0);
     setActive(false);
+    update();
+}
 
-    //xPressPos = 0;
+int TextEdit::getRectWidth() const
+{
+    return rectWidth;
+}
 
-    QPropertyAnimation *p = new QPropertyAnimation(activeRect.get(), "width");
-    p->setEasingCurve(QEasingCurve::OutBack);
-    p->setDuration(1000);
-    p->setStartValue(this->width());
-    p->setEndValue(0);
-
-    connect(p, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
-    connect(p, &QPropertyAnimation::finished, this, [=]() { delete p; });
-
-    p->start();
+void TextEdit::setRectWidth(int newRectWidth)
+{
+    if (rectWidth == newRectWidth)
+        return;
+    rectWidth = newRectWidth;
+    emit rectWidthChanged();
 }
 
 bool TextEdit::isActive() const
@@ -76,12 +88,12 @@ void TextEdit::setActive(const bool &newActive)
 
 // MyRect
 
-uint8_t MyUI::MyRect::getWidth() const
+int MyRect::getWidth() const
 {
     return width;
 }
 
-void MyUI::MyRect::setWidth(const uint8_t &newWidth)
+void MyRect::setWidth(int newWidth)
 {
     if (width == newWidth)
         return;
@@ -89,12 +101,12 @@ void MyUI::MyRect::setWidth(const uint8_t &newWidth)
     emit widthChanged();
 }
 
-uint8_t MyUI::MyRect::getHeight() const
+int MyRect::getHeight() const
 {
     return height;
 }
 
-void MyUI::MyRect::setHeight(const uint8_t &newHeight)
+void MyRect::setHeight(int newHeight)
 {
     if (height == newHeight)
         return;
@@ -102,27 +114,27 @@ void MyUI::MyRect::setHeight(const uint8_t &newHeight)
     emit heightChanged();
 }
 
-uint8_t MyUI::MyRect::getX() const
+int MyRect::getX() const
 {
     return x;
 }
 
-void MyUI::MyRect::setX(uint8_t newX)
+void MyRect::setX(int newX)
 {
     x = newX;
 }
 
-uint8_t MyUI::MyRect::getY() const
+int MyRect::getY() const
 {
     return y;
 }
 
-void MyUI::MyRect::setY(uint8_t newY)
+void MyRect::setY(int newY)
 {
     y = newY;
 }
 
-MyUI::MyRect::MyRect(uint8_t _x, uint8_t _y, uint8_t _width, uint8_t _height)
+MyRect::MyRect(uint8_t _x, uint8_t _y, uint8_t _width, uint8_t _height)
     : x(_x)
     , y(_y)
     , width(_width)

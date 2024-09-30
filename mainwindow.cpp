@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&win, &QWinWidget::sizeChanged, this, [=]() { this->resize(win.size()); });
     win.show();
 
-    qDebug() << sizeof(uint8_t);
-
     QSqlDatabase database = QSqlDatabase::addDatabase("QPSQL");
     database.setUserName("postgres");
     database.setPassword("zqid45mroot");

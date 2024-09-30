@@ -25,7 +25,6 @@ win32 {
       title_bar/winnativewindow.cpp
 
   HEADERS += \
-  UI/LineEdit.hpp \
       mainwindow.hpp \
       startdialog.hpp \
       UI/ripplebutton.hpp \
