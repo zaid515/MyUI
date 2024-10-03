@@ -4,5 +4,10 @@
         <file>themeIcons/Maximize.png</file>
         <file>themeIcons/Minimize.png</file>
         <file>themeIcons/Restore.png</file>
+        <file>themeIcons/white_close.256x256.png</file>
+        <file>themeIcons/white_maximize.256x256 (1).png</file>
+        <file>themeIcons/white_minimize.256x34.png</file>
+        <file>themeIcons/white_Restore.256x256.png</file>
+        <file>themeIcons/Rolling-0.7s-200px.gif</file>
     </qresource>
 </RCC>

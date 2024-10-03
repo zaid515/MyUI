@@ -17,16 +17,240 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWidget{
+background-color: rgb(10, 10, 10);
+}
+QPushButton
+{
+	background-color: rgb(33, 150, 243);
+	color: #ffffff;
+	border-radius: 25px;
+}
+
+QPushButton::hover
+{
+	background-color: rgb(27, 125, 199);
+	color: rgb(255,255,255);
+	border-radius: 25px;
+}
+
+QPushButton::disabled
+{
+	background-color: rgb(40,40,40);
+	color: rgb(255,255,255);
+	border-radius: 25px;
+}
+
+QPushButton::pressed
+{
+	background-color: rgb(27, 125, 199);
+	color: rgb(255,255,255);
+	border-radius: 25px;
+}
+
+</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" rowspan="3">
+    <item row="0" column="2" rowspan="2" colspan="2">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="styleSheet">
+       <string notr="true">
+</string>
+      </property>
+      <widget class="QTableView" name="tableView">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>70</y>
+         <width>256</width>
+         <height>192</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 0, 0);
+</string>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+       </property>
+       <property name="textElideMode">
+        <enum>Qt::TextElideMode::ElideMiddle</enum>
+       </property>
+       <property name="verticalScrollMode">
+        <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+       </property>
+       <property name="horizontalScrollMode">
+        <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>11</y>
+         <width>493</width>
+         <height>52</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="TextEdit" name="lineEdit_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255,255,255);</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="TextEdit" name="lineEdit_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="TextEdit" name="lineEdit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="RippleButton" name="openSideBarBT">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>240</y>
+         <width>141</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>push</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="RippleButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>140</y>
+         <width>101</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+      <widget class="Spinner" name="widget_3" native="true">
+       <property name="geometry">
+        <rect>
+         <x>640</x>
+         <y>20</y>
+         <width>50</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-width: 1px;
+border-color: rgb(0,0,0);</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1">
      <widget class="SideBar" name="widget" native="true">
       <property name="minimumSize">
        <size>
         <width>2</width>
         <height>2</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>0</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -136,110 +360,6 @@ border-radius: 0px;
       </layout>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="3">
-     <widget class="QTableView" name="tableView">
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="RippleButton" name="pushButton_2">
-      <property name="styleSheet">
-       <string notr="true">border-radius: 5px;
-</string>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="RippleButton" name="openSideBarBT">
-      <property name="styleSheet">
-       <string notr="true">QPushButton
-{
-	background-color: rgb(35, 35, 35);
-	color: #ffffff;
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 50px;
-	border-color: rgb(35, 35, 35);
-	padding: 5px;
-	font: 15pt &quot;Microsoft Sans Serif&quot;;
-
-}
-
-QPushButton::hover
-{
-	
-	
-
-}
-
-QPushButton::disabled
-{
-	background-color: rgb(40,40,40);
-	color: rgb(255,255,255);
-	border-style: solid;
-	border-radius: 50px;
-	padding: 5px;
-}
-
-QPushButton::pressed
-{
-	background-color: rgb(40,40,40);
-	color: rgb(255,255,255);
-	border-style: solid;
-	border-radius: 50px;
-	padding: 5px;
-}
-
-</string>
-      </property>
-      <property name="text">
-       <string>push</string>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>100</width>
-        <height>60</height>
-       </size>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QWidget" name="widget_2" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(23, 33, 43);</string>
-      </property>
-      <widget class="TextEdit" name="lineEdit">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>201</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </widget>
-    </item>
    </layout>
   </widget>
  </widget>
@@ -259,6 +379,12 @@ QPushButton::pressed
    <class>TextEdit</class>
    <extends>QLineEdit</extends>
    <header>UI/textedit.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>Spinner</class>
+   <extends>QWidget</extends>
+   <header>UI/spinner.hpp</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

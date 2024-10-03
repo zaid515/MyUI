@@ -12,7 +12,7 @@ WinNativeWindow::WinNativeWindow(const int x, const int y, const int width, cons
 {
 
 	//The native window technically has a background color. You can set it here
-    HBRUSH windowBackground = CreateSolidBrush(RGB(0, 0, 0));
+    HBRUSH windowBackground = CreateSolidBrush(RGB(33, 150, 243));
 
     HINSTANCE hInstance = GetModuleHandle(nullptr);
     WNDCLASSEX wcx = {};

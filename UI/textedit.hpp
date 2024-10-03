@@ -56,6 +56,9 @@ public:
     int getRectWidth() const;
     void setRectWidth(int newRectWidth);
 
+    QColor getActiveColor() const;
+    void setActiveColor(const QColor &newActiveColor);
+
 signals:
     void rectWidthChanged();
 
@@ -68,9 +71,7 @@ private:
     QColor activeColor;
     MyRect *activeRect;
     int xPressPos;
-    int rectWidth;
     bool active;
-    QLabel a;
 };
 
 #endif // TEXTEDIT_HPP

@@ -20,6 +20,7 @@ win32 {
       UI/sidebar.cpp                \
       UI/popupdialog.cpp            \
       UI/textedit.cpp               \
+      UI/spinner.cpp                \
       title_bar/qwinwidget.cpp      \
       title_bar/widget.cpp          \
       title_bar/winnativewindow.cpp
@@ -31,6 +32,7 @@ win32 {
       UI/sidebar.hpp \
       UI/popupdialog.hpp \
       UI/textedit.hpp     \
+      UI/spinner.hpp    \
       title_bar/OSXHideTitleBar.h \
       title_bar/QWinWidget.h \
       title_bar/widget.h \
@@ -40,6 +42,8 @@ win32 {
       mainwindow.ui \
       startdialog.ui
 
+  RESOURCES += \
+        Resources.qrc
 
   LIBS += -L"C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib" \
           -ldwmapi \
@@ -50,5 +54,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-  Resources.qrc
+

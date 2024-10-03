@@ -2,11 +2,14 @@
 #define MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include <QMovie>
 #include <QPointer>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include "title_bar/widget.h"
 #include <iostream>
+
 #include <windows.h>
 
 #include "startdialog.hpp"

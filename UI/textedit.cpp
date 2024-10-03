@@ -2,20 +2,14 @@
 
 TextEdit::TextEdit(QWidget *parent)
     : QLineEdit(parent)
+    , activeColor(Qt::blue)
     , xPressPos(0)
-    , rectWidth(0)
     , active(false)
 {
     this->setAlignment(Qt::AlignBottom);
     this->setFrame(false);
     this->setTextMargins(0, 0, 0, 5);
     activeRect = new MyRect(0, 0, 0, 0);
-
-    a.setParent(this);
-    a.setText("Product name");
-    a.setAlignment(Qt::AlignLeft);
-    a.move(0, this->height() - 25);
-    a.show();
 }
 
 void TextEdit::paintEvent(QPaintEvent *event)
@@ -26,13 +20,13 @@ void TextEdit::paintEvent(QPaintEvent *event)
     p.setPen(Qt::NoPen);
 
     p.setBrush(Qt::gray);
-    p.drawRect(0, this->height() - 2, this->width(), 2);
+    p.drawRect(0, this->height() - 1, this->width(), 1);
 
-    p.setBrush(Qt::blue);
+    p.setBrush(activeColor);
     p.drawRect(xPressPos - (activeRect->getWidth() / 2),
-               this->height() - 3,
+               this->height() - 2,
                activeRect->getWidth(),
-               3);
+               2);
 }
 
 void TextEdit::mousePressEvent(QMouseEvent *event)
@@ -45,10 +39,10 @@ void TextEdit::mousePressEvent(QMouseEvent *event)
         p->setEasingCurve(QEasingCurve::OutQuad);
         p->setTargetObject(activeRect);
         p->setPropertyName("width");
-        p->setDuration(750);
+        p->setDuration(500);
         p->setStartValue(0);
         p->setEndValue(this->width() + this->width());
-        p->start();
+        p->start(QAbstractAnimation::DeleteWhenStopped);
         connect(p, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
         connect(p, &QPropertyAnimation::finished, this, [=]() { delete p; });
         setActive(true);
@@ -63,17 +57,14 @@ void TextEdit::focusOutEvent(QFocusEvent *event)
     update();
 }
 
-int TextEdit::getRectWidth() const
+QColor TextEdit::getActiveColor() const
 {
-    return rectWidth;
+    return activeColor;
 }
 
-void TextEdit::setRectWidth(int newRectWidth)
+void TextEdit::setActiveColor(const QColor &newActiveColor)
 {
-    if (rectWidth == newRectWidth)
-        return;
-    rectWidth = newRectWidth;
-    emit rectWidthChanged();
+    activeColor = newActiveColor;
 }
 
 bool TextEdit::isActive() const

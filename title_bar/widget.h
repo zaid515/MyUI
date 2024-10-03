@@ -8,6 +8,7 @@
 class Widget : public QMainWindow
 {
     Q_OBJECT
+
 public:
     explicit Widget(QWidget *parent = 0);
 	

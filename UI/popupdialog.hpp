@@ -3,8 +3,10 @@
 
 #include <QDialog>
 #include <QGraphicsEffect>
+#include <QMessageBox>
 #include <QPointer>
 #include <QPropertyAnimation>
+#include <QTimer>
 
 class PopUpDialog : public QDialog
 {
@@ -14,10 +16,11 @@ public:
     ~PopUpDialog() {}
     QPoint getCenter();
     void centerDialog();
-    void showMessage(const QString &message);
+    static void showMessage(const QString &message, QWidget *parent);
 
 protected:
-    void resizeEvent(QResizeEvent *) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     QWidget *dialog;

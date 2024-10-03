@@ -114,8 +114,7 @@ void SideBar::openSideBar()
     }
 
     connect(openAnimation, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
-    connect(openAnimation, &QPropertyAnimation::finished, this, [=]() { delete openAnimation; });
-    openAnimation->start();   
+    openAnimation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 //set open side bar button

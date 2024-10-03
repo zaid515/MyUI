@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget->setLayout(MyUI::Layout::Vertical);
     ui->widget->setOpenDirction(MyUI::OpenDirction::ToRight);
 
-    ui->openSideBarBT->setRippleColor(Qt::lightGray);
+    //ui->openSideBarBT->setRippleColor(Qt::lightGray);
 
     this->setParent(win.window());
     win.setGeometry(this->geometry());
@@ -43,8 +43,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_openSideBarBT_clicked()
 {
-    win.onMaximizeButtonClicked();
-    StartDialog *d = new StartDialog(this);
-    connect(&win, &QWinWidget::sizeChanged, this, [=]() { d->resize(win.size()); });
-    d->show();
+    // StartDialog *d = new StartDialog(this);
+    // connect(&win, &QWinWidget::sizeChanged, this, [=]() { d->resize(win.size()); });
+    // d->show();
+
+    PopUpDialog::showMessage("zaid2amier", this);
 }
