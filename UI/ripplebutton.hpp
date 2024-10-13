@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QPainter>
 #include <QPoint>
+#include <QProperty>
 #include <QPropertyAnimation>
 #include <QPushButton>
 
@@ -61,6 +62,7 @@ protected:
     void paintEvent(QPaintEvent *paintEvent = nullptr) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseHoverEnter(QHoverEvent *event);
 
 private:
     QColor rippleColor;

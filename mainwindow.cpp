@@ -6,18 +6,34 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    Theme::Get().init();
+    this->setStyleSheet(Theme::Get().mainWindow);
+
     ui->pushButton->setRippleColor(Qt::lightGray);
     ui->widget->setOpenButtton(ui->openSideBarBT);
+    ui->widget->setFixedWidth(200);
     ui->widget->setLayout(MyUI::Layout::Vertical);
     ui->widget->setOpenDirction(MyUI::OpenDirction::ToRight);
 
-    //ui->openSideBarBT->setRippleColor(Qt::lightGray);
+    ui->billBt->setRippleColor(QColor(33, 150, 243, 240));
 
     this->setParent(win.window());
     win.setGeometry(this->geometry());
     this->setGeometry(0, 30, this->geometry().width(), this->geometry().height());
     connect(&win, &QWinWidget::sizeChanged, this, [=]() { this->resize(win.size()); });
     win.show();
+
+    connect(ui->checkBox, &QCheckBox::checkStateChanged, this, [=]() {
+        if (ui->checkBox->isChecked()) {
+            Settings::write("Settings.ini", "DarkThemeEnabled", 1);
+        } else {
+            Settings::write("Settings.ini", "DarkThemeEnabled", 0);
+        }
+        qDebug() << "chacked";
+        Theme::Get().init();
+        this->setStyleSheet(Theme::Get().mainWindow);
+    });
 
     QSqlDatabase database = QSqlDatabase::addDatabase("QPSQL");
     database.setUserName("postgres");

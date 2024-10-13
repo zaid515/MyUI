@@ -2,7 +2,7 @@
 
 Spinner::Spinner(QWidget *parent)
     : QWidget{parent}
-    , spinnerColor(Qt::cyan)
+    , spinnerColor(QColor(33, 150, 243))
     , spinnerWidth(3)
     , duration(1000)
     , degree(0)
@@ -22,14 +22,11 @@ void Spinner::paintEvent(QPaintEvent *event)
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
 
-    int side = qMin(width(), height());
-    // p.scale(side / 200.0, side / 200.0);
-
-    gradient.setColorAt(1, spinnerColor);
     b = QBrush(gradient);
     gradient.setStart(this->width() / 2, 0);
     gradient.setFinalStop(this->width() / 2, this->height());
-    gradient.setColorAt(0, Qt::darkCyan);
+    gradient.setColorAt(0, Qt::black);
+    gradient.setColorAt(1, spinnerColor);
 
     p.setPen(QPen(b, spinnerWidth));
     QRectF rect(p.pen().widthF() / 2.0,

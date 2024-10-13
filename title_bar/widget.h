@@ -1,9 +1,14 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include <QGraphicsEffect>
+#include <QLabel>
+#include <QLayout>
 #include <QMainWindow>
 #include <QToolBar>
 #include "UI/ripplebutton.hpp"
+#include "UI/settings.hpp"
+#include "UI/theme.hpp"
 
 class Widget : public QMainWindow
 {
@@ -24,6 +29,9 @@ public:
 signals:
 
 public slots:
+
+private:
+    bool darkThemeEnabled;
 };
 
 #endif // WIDGET_H

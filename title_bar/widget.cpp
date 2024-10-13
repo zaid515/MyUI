@@ -1,16 +1,18 @@
 #include "widget.h"
 
-#include <QGraphicsEffect>
-#include <QLabel>
-#include <QLayout>
-
 Widget::Widget(QWidget *parent)
-	: QMainWindow(parent)
+    : QMainWindow(parent)
+    , darkThemeEnabled(false)
 {
+    darkThemeEnabled = Settings::read("Settings.ini", "DarkThemeEnabled").toBool();
+    //Set a black background for funsies
+    QPalette Pal(palette());
 
-	//Set a black background for funsies
-	QPalette Pal(palette());
-    Pal.setColor(QPalette::Window, Qt::black);
+    if (darkThemeEnabled) {
+        Pal.setColor(QPalette::Window, QColor(20, 20, 20));
+    } else {
+        Pal.setColor(QPalette::Window, Qt::white);
+    }
     setAutoFillBackground(true);
 	setPalette(Pal);
 
@@ -35,7 +37,11 @@ Widget::Widget(QWidget *parent)
 
     //Create a title label just because
     QLabel *titleLabel = new QLabel("              MyUI");
-    titleLabel->setStyleSheet("color: rgb(0,0,0);");
+    if (darkThemeEnabled) {
+        titleLabel->setStyleSheet("color: rgb(255,255,255);");
+    } else {
+        titleLabel->setStyleSheet("color: rgb(0,0,0);");
+    }
     QFont font = titleLabel->font();
     font.setPointSize(12);
     titleLabel->setFont(font);
@@ -62,31 +68,48 @@ Widget::Widget(QWidget *parent)
     toolBar->addWidget(rightSpacer);
 
     //Create the min/max/close buttons
-    minimizeButton = new RippleButton(QIcon(":/themeIcons/Minimize.png"), "");
-    maximizeButton = new RippleButton(QIcon(":/themeIcons/Maximize.png"), "");
-    closeButton = new RippleButton(QIcon(":/themeIcons/Close.png"), "");
+    minimizeButton = new RippleButton("");
+    maximizeButton = new RippleButton("");
+    closeButton = new RippleButton("");
 
-    minimizeButton->setIconSize(QSize(15, 15));
+    if (darkThemeEnabled) {
+        minimizeButton->setIcon(QIcon(":/themeIcons/white_minimize.png"));
+        maximizeButton->setIcon(QIcon(":/themeIcons/white_maximize.png"));
+        closeButton->setIcon(QIcon(":/themeIcons/white_close.png"));
+    } else {
+        minimizeButton->setIcon(QIcon(":/themeIcons/Minimize.png"));
+        maximizeButton->setIcon(QIcon(":/themeIcons/Maximize.png"));
+        closeButton->setIcon(QIcon(":/themeIcons/Close.png"));
+    }
+
+    minimizeButton->setIconSize(QSize(15, 10));
     maximizeButton->setIconSize(QSize(10, 10));
     closeButton->setIconSize(QSize(10, 10));
 
-    const QString style
-        = "QPushButton{background-color: rgb(255, 255, 255);color: #000000;padding: "
-          "5px;border-radius: 0px;font: 15pt "
-          "Microsoft Sans Serif"
-          ";}QPushButton::hover{background-color: rgb(240, 240, "
-          "240);color:rgb(0,0,0);border-radius: 0px;padding: 5px;}";
+    Theme::Get().init();
+    QString style = Theme::Get().titleBarButtons;
 
     minimizeButton->setStyleSheet(style);
     maximizeButton->setStyleSheet(style);
-    closeButton->setStyleSheet(
-        "QPushButton{background-color: rgb(255, 255, 255);color: #000000;padding: "
-        "5px;border-radius: 0px;font: 15pt "
-        "Microsoft Sans Serif"
-        ";}QPushButton::hover{background-color: rgb(240, 0, "
-        "0);color:rgb(255,255,255);border-radius: 0px;padding: 5px;}");
+    closeButton->setStyleSheet(Theme::Get().titleBarCloseButton);
 
     maximizeButton->setCheckable(true);
+
+    connect(maximizeButton, &RippleButton::clicked, this, [=]() {
+        if (maximizeButton->isChecked()) {
+            if (darkThemeEnabled) {
+                maximizeButton->setIcon(QIcon(":/themeIcons/white_Restore.png"));
+            } else {
+                maximizeButton->setIcon(QIcon(":/themeIcons/Restore.png"));
+            }
+        } else {
+            if (darkThemeEnabled) {
+                maximizeButton->setIcon(QIcon(":/themeIcons/white_maximize.png"));
+            } else {
+                maximizeButton->setIcon(QIcon(":/themeIcons/Maximize.png"));
+            }
+        }
+    });
 
     minimizeButton->setFixedSize(48, 30);
     maximizeButton->setFixedSize(48, 30);

@@ -4,10 +4,16 @@
         <file>themeIcons/Maximize.png</file>
         <file>themeIcons/Minimize.png</file>
         <file>themeIcons/Restore.png</file>
-        <file>themeIcons/white_close.256x256.png</file>
-        <file>themeIcons/white_maximize.256x256 (1).png</file>
-        <file>themeIcons/white_minimize.256x34.png</file>
-        <file>themeIcons/white_Restore.256x256.png</file>
+        <file>themeIcons/white_close.png</file>
+        <file>themeIcons/white_maximize.png</file>
+        <file>themeIcons/white_minimize.png</file>
+        <file>themeIcons/white_Restore.png</file>
         <file>themeIcons/Rolling-0.7s-200px.gif</file>
+        <file>Styles/Dark_Theme/MainWindow.txt</file>
+        <file>Styles/Dark_Theme/Title_Bar_Buttons.txt</file>
+        <file>Styles/Dark_Theme/Title_Bar_Close_Button.txt</file>
+        <file>Styles/Light_Theme/Main_Window.txt</file>
+        <file>Styles/Light_Theme/Title_Bar_Buttons.txt</file>
+        <file>Styles/Light_Theme/Title_Bar_Close_Button.txt</file>
     </qresource>
 </RCC>

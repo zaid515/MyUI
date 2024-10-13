@@ -5,6 +5,9 @@ PopUpDialog::PopUpDialog(QWidget *parent, QWidget *m_dialog)
     : QDialog(parent)
     , dialog(m_dialog)
 {
+    QGraphicsBlurEffect *blur = new QGraphicsBlurEffect;
+    parent->setGraphicsEffect(blur);
+
     this->setParent(parent->window());
     this->setFixedSize(parent->width(), parent->height());
 
@@ -36,9 +39,10 @@ void PopUpDialog::centerDialog()
 
 void PopUpDialog::showMessage(const QString &message, QWidget *parent)
 {
-    QWidget *fade = new QWidget(parent->window());
+    QDialog *fade = new QDialog();
+    fade->setParent(parent->window());
     fade->setGeometry(0, 30, parent->width(), parent->height());
-    fade->setStyleSheet("background-color: rgba(0,0,0,200);");
+    fade->setStyleSheet("background-color: rgba(0,0,0,150);");
 
     QMessageBox *m = new QMessageBox();
     m->setParent(fade);

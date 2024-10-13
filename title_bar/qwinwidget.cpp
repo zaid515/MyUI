@@ -90,12 +90,13 @@ QWinWidget::QWinWidget(QWidget *parent)
         , 1 * window()->devicePixelRatio()
         , 1 * window()->devicePixelRatio());
 
-	//If you want to set a minimize size for your app, do so here
+    p_ParentWinNativeWindow->setMinimumSize(800, 600);
+
+    //If you want to set a minimize size for your app, do so here
     //p_ParentWinNativeWindow->setMinimumSize(1024 * window()->devicePixelRatio(), 768 * window()->devicePixelRatio());
 
-	//If you want to set a maximum size for your app, do so here
-	//p_ParentWinNativeWindow->setMaximumSize(1024 * window()->devicePixelRatio(), 768 * window()->devicePixelRatio());
-
+    //If you want to set a maximum size for your app, do so here
+    //p_ParentWinNativeWindow->setMaximumSize(1024 * window()->devicePixelRatio(), 768 * window()->devicePixelRatio());
 
     //Save the native window handle for shorthand use
     m_ParentNativeWindowHandle = p_ParentWinNativeWindow->hWnd;

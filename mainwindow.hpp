@@ -12,6 +12,8 @@
 
 #include <windows.h>
 
+#include "UI/settings.hpp"
+#include "UI/theme.hpp"
 #include "startdialog.hpp"
 #include "title_bar/QWinWidget.h"
 

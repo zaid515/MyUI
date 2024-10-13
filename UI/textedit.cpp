@@ -2,7 +2,7 @@
 
 TextEdit::TextEdit(QWidget *parent)
     : QLineEdit(parent)
-    , activeColor(Qt::blue)
+    , activeColor(QColor(33, 150, 243))
     , xPressPos(0)
     , active(false)
 {
@@ -20,13 +20,13 @@ void TextEdit::paintEvent(QPaintEvent *event)
     p.setPen(Qt::NoPen);
 
     p.setBrush(Qt::gray);
-    p.drawRect(0, this->height() - 1, this->width(), 1);
+    p.drawRect(0, this->height() - 2, this->width(), 2);
 
     p.setBrush(activeColor);
     p.drawRect(xPressPos - (activeRect->getWidth() / 2),
-               this->height() - 2,
+               this->height() - 3,
                activeRect->getWidth(),
-               2);
+               3);
 }
 
 void TextEdit::mousePressEvent(QMouseEvent *event)

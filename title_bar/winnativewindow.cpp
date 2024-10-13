@@ -10,8 +10,7 @@ QWidget* WinNativeWindow::childWidget = nullptr;
 WinNativeWindow::WinNativeWindow(const int x, const int y, const int width, const int height)
     : hWnd(nullptr)
 {
-
-	//The native window technically has a background color. You can set it here
+    //The native window technically has a background color. You can set it here
     HBRUSH windowBackground = CreateSolidBrush(RGB(33, 150, 243));
 
     HINSTANCE hInstance = GetModuleHandle(nullptr);
@@ -59,6 +58,7 @@ WinNativeWindow::~WinNativeWindow()
     DestroyWindow(hWnd);
 }
 
+COLORREF frameColor = RGB(100, 149, 237);
 
 LRESULT CALLBACK WinNativeWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -71,21 +71,23 @@ LRESULT CALLBACK WinNativeWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam
 
     switch (message)
     {
-        // ALT + SPACE or F10 system menu
-        case WM_SYSCOMMAND:
-        {
-            if (wParam == SC_KEYMENU)
-            {
-                RECT winrect;
-                GetWindowRect(hWnd, &winrect);
-                TrackPopupMenu(GetSystemMenu(hWnd, false), TPM_TOPALIGN | TPM_LEFTALIGN, winrect.left + 5, winrect.top + 5, 0, hWnd, NULL);
-                break;
-            }
-            else
-            {
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
+    // ALT + SPACE or F10 system menu
+    case WM_SYSCOMMAND: {
+        if (wParam == SC_KEYMENU) {
+            RECT winrect;
+            GetWindowRect(hWnd, &winrect);
+            TrackPopupMenu(GetSystemMenu(hWnd, false),
+                           TPM_TOPALIGN | TPM_LEFTALIGN,
+                           winrect.left + 5,
+                           winrect.top + 5,
+                           0,
+                           hWnd,
+                           NULL);
+            break;
+        } else {
+            return DefWindowProc(hWnd, message, wParam, lParam);
         }
+    }
         case WM_NCCALCSIZE:
         {
             //this kills the window frame and title bar we added with

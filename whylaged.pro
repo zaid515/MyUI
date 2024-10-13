@@ -21,6 +21,7 @@ win32 {
       UI/popupdialog.cpp            \
       UI/textedit.cpp               \
       UI/spinner.cpp                \
+      UI/settings.cpp               \
       title_bar/qwinwidget.cpp      \
       title_bar/widget.cpp          \
       title_bar/winnativewindow.cpp
@@ -33,6 +34,7 @@ win32 {
       UI/popupdialog.hpp \
       UI/textedit.hpp     \
       UI/spinner.hpp    \
+      UI/settings.hpp \
       title_bar/OSXHideTitleBar.h \
       title_bar/QWinWidget.h \
       title_bar/widget.h \
@@ -54,4 +56,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+HEADERS += \
+  UI/theme.hpp
+
+SOURCES += \
+  UI/theme.cpp
 
