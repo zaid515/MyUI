@@ -4,8 +4,6 @@
 #include <QTextStream>
 #include <QtCore>
 
-#include "UI/settings.hpp"
-
 class Theme
 {
 public:

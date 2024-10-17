@@ -17,7 +17,7 @@ public:
     Q_PROPERTY(int width READ getWidth WRITE setWidth NOTIFY widthChanged)
 
 public:
-    MyRect(uint8_t _x = 0, uint8_t _y = 0, uint8_t _width = 0, uint8_t _height = 0);
+    MyRect(int _x = 0, int _y = 0, int _width = 0, int _height = 0);
 
     int getWidth() const;
     void setWidth(int newWidth);
@@ -59,6 +59,9 @@ public:
     QColor getActiveColor() const;
     void setActiveColor(const QColor &newActiveColor);
 
+    int getDuration() const;
+    void setDuration(int newDuration);
+
 signals:
     void rectWidthChanged();
 
@@ -69,8 +72,9 @@ protected:
 
 private:
     QColor activeColor;
-    MyRect *activeRect;
+    std::unique_ptr<MyRect> activeRect;
     int xPressPos;
+    int duration;
     bool active;
 };
 

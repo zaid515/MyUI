@@ -37,7 +37,7 @@ void SideBar::setX(const int &newX)
     if (x == newX)
         return;
     x = newX;
-    this->setGeometry(newX, geometry().y(), width(), height());
+    this->move(newX, geometry().y());
     emit xChanged();
 }
 
@@ -51,7 +51,7 @@ void SideBar::setY(const int &newY)
     if (y == newY)
         return;
     y = newY;
-    this->setGeometry(geometry().x(), newY, width(), height());
+    this->move(geometry().x(), newY);
     emit yChanged();
 }
 
@@ -62,33 +62,8 @@ void SideBar::openSideBar()
     openAnimation->setDuration(openDuration);
     openAnimation->setTargetObject(this);
 
-    switch (openStat) {
-    //open the side bar
-    case false: {
-        if (layout == MyUI::Layout::Vertical) {
-            openAnimation->setPropertyName("x");
-            if (openDirction == MyUI::OpenDirction::ToRight) {
-                openAnimation->setStartValue(-this->width());
-                openAnimation->setEndValue(0);
-            } else if (openDirction == MyUI::OpenDirction::ToLeft) {
-                openAnimation->setStartValue(this->parentWidget()->width());
-                openAnimation->setEndValue(this->parentWidget()->width() - this->width());
-            }
-        } else if (layout == MyUI::Layout::Horizontal) {
-            openAnimation->setPropertyName("y");
-            if (openDirction == MyUI::OpenDirction::ToTop) {
-                openAnimation->setStartValue(this->parentWidget()->height());
-                openAnimation->setEndValue(this->parentWidget()->height() - this->height());
-            } else if (openDirction == MyUI::OpenDirction::ToBottom) {
-                openAnimation->setStartValue(-this->height());
-                openAnimation->setEndValue(0);
-            }
-        }
-        openStat = true;
-        break;
-    }
-    //close the side bar
-    case true: {
+    if (openStat) {
+        //open sidebar
         if (layout == MyUI::Layout::Vertical) {
             openAnimation->setPropertyName("x");
             if (openDirction == MyUI::OpenDirction::ToRight) {
@@ -108,11 +83,30 @@ void SideBar::openSideBar()
                 openAnimation->setEndValue(-this->height());
             }
         }
-        openStat = false;
-        break;
     }
+    else{
+        //close sidebar
+        if (layout == MyUI::Layout::Vertical) {
+            openAnimation->setPropertyName("x");
+            if (openDirction == MyUI::OpenDirction::ToRight) {
+                openAnimation->setStartValue(-this->width());
+                openAnimation->setEndValue(0);
+            } else if (openDirction == MyUI::OpenDirction::ToLeft) {
+                openAnimation->setStartValue(this->parentWidget()->width());
+                openAnimation->setEndValue(this->parentWidget()->width() - this->width());
+            }
+        } else if (layout == MyUI::Layout::Horizontal) {
+            openAnimation->setPropertyName("y");
+            if (openDirction == MyUI::OpenDirction::ToTop) {
+                openAnimation->setStartValue(this->parentWidget()->height());
+                openAnimation->setEndValue(this->parentWidget()->height() - this->height());
+            } else if (openDirction == MyUI::OpenDirction::ToBottom) {
+                openAnimation->setStartValue(-this->height());
+                openAnimation->setEndValue(0);
+            }
+        }
     }
-
+    openStat = !openStat;
     connect(openAnimation, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
     openAnimation->start(QAbstractAnimation::DeleteWhenStopped);
 }
@@ -134,11 +128,10 @@ void SideBar::setOpenDuration(int newOpenDuration)
 }
 
 void SideBar::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event)
-
-    QWidget::paintEvent(event);
+{    
+    //paint background
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(this->rect(), Qt::red);
+    painter.fillRect(this->rect(), QColor(23,33,43));
+    QWidget::paintEvent(event);
 }

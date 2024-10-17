@@ -83,6 +83,7 @@ Ripple::Ripple(const QPoint &center, const float &radius, const QColor &color)
 // Ripple Button class defintion
 //--------------------------------------------------------------
 RippleButton::RippleButton(QWidget *parent)
+    : rippleColor(QColor(52, 76, 103))
 {
     setParent(parent);
 }
@@ -157,6 +158,7 @@ void RippleButton::mousePressEvent(QMouseEvent *event)
     radiusAnimation->setEndValue(maxRadius);
     radiusAnimations_.append(radiusAnimation);
 
+    //increace radius when animation value changed
     connect(radiusAnimation, &QPropertyAnimation::finished, this, [=]() {
         ripple->setFinished(true);
         if (radiusAnimations_.size() >= 10 && ripple->opacity() == 0) {

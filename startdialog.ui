@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
+    <string notr="true">background-color: #17212b;
 border-radius: 15px;
 </string>
    </property>
@@ -42,22 +42,22 @@ border-radius: 15px;
     <property name="font">
      <font>
       <family>Sans Serif Collection</family>
-      <pointsize>15</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton
 {
-	background-color: rgb(255,255,255);
-	color: #000000;
+	background-color: #17212b;
+	color: rgb(33,150,243);
 	border-radius: 10px;
 	padding: 5px;
 }
 
 QPushButton::hover
 {
-	background-color: rgb(215,215,215);
-	color: #000000;
+	background-color: #1d2a39;
+	color: rgb(33,150,243);
 	border-radius: 10px;
 	padding: 5px;
 }
@@ -65,15 +65,15 @@ QPushButton::hover
 QPushButton::disabled
 {
 	background-color: rgb(255,255,255);
-	color: #000000;
+	color: rgb(33,150,243);
 	border-radius: 10px;
 	padding: 5px;
 }
 
 QPushButton::pressed
 {
-	background-color: rgb(215,215,215);
-	color: #000000;
+	background-color: #1d2a39;
+	color: rgb(33,150,243);
 	border-radius: 10px;
 	padding: 5px;
 }
@@ -89,6 +89,16 @@ QPushButton::pressed
      <string>create</string>
     </property>
    </widget>
+   <widget class="TextEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>130</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -96,6 +106,11 @@ QPushButton::pressed
    <class>RippleButton</class>
    <extends>QPushButton</extends>
    <header>UI/ripplebutton.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>TextEdit</class>
+   <extends>QLineEdit</extends>
+   <header>UI/textedit.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>

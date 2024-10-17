@@ -6,14 +6,14 @@ StartDialog::StartDialog(QWidget *parent)
     , ui(new Ui::StartDialog)
 {
     ui->setupUi(this);
-
+    this->setParent(parent->window());
     this->setGeometry(0, 30, parent->width(), parent->height());
     dialog = new PopUpDialog(this, ui->dialog);
-    this->setParent(parent->window());
 }
 
 StartDialog::~StartDialog()
 {
+    delete dialog;
     delete ui;
 }
 

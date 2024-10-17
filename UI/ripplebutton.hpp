@@ -1,6 +1,7 @@
 #ifndef RIPPLEBUTTON_HPP
 #define RIPPLEBUTTON_HPP
 
+#include <QGraphicsDropShadowEffect>
 #include <QMouseEvent>
 #include <QObject>
 #include <QPainter>

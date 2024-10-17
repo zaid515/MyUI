@@ -22,6 +22,8 @@ win32 {
       UI/textedit.cpp               \
       UI/spinner.cpp                \
       UI/settings.cpp               \
+      UI/theme.cpp                  \
+      firststartprogram.cpp         \
       title_bar/qwinwidget.cpp      \
       title_bar/widget.cpp          \
       title_bar/winnativewindow.cpp
@@ -35,6 +37,8 @@ win32 {
       UI/textedit.hpp     \
       UI/spinner.hpp    \
       UI/settings.hpp \
+      UI/theme.hpp \
+      firststartprogram.hpp \
       title_bar/OSXHideTitleBar.h \
       title_bar/QWinWidget.h \
       title_bar/widget.h \
@@ -42,7 +46,8 @@ win32 {
 
   FORMS += \
       mainwindow.ui \
-      startdialog.ui
+      startdialog.ui \
+      firststartprogram.ui
 
   RESOURCES += \
         Resources.qrc
@@ -55,10 +60,3 @@ win32 {
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-HEADERS += \
-  UI/theme.hpp
-
-SOURCES += \
-  UI/theme.cpp
-

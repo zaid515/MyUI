@@ -20,11 +20,11 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
-    void closeEvent(QCloseEvent *event) override;
 
 private:
     QWidget *dialog;
     QWidget *fadeWidget;
+    QPropertyAnimation a;
 
 signals:
     void windowResized();

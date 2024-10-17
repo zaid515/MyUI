@@ -1,1 +1,1 @@
-QPushButton{background-color: rgb(10,10,10);border-radius: 0px; }QPushButton::hover{background-color: rgb(196,43,28);border-radius: 0px;}
+QPushButton{background-color: #1f2936;border-radius: 0px; }QPushButton::hover{background-color: rgb(196,43,28);border-radius: 0px;}

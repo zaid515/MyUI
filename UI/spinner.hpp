@@ -4,6 +4,7 @@
 #include <QPainter>
 #include <QPropertyAnimation>
 #include <QWidget>
+#include "QProperty"
 
 class Spinner : public QWidget
 {
@@ -30,11 +31,13 @@ protected:
 
 private:
     QLinearGradient gradient;
+    QPropertyAnimation a;
     QColor spinnerColor;
     QBrush b;
     int spinnerWidth;
     int duration;
     int degree;
+    //QProperty<QColor> spinColor;
 
 signals:
     void degreeChanged();

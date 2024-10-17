@@ -7,14 +7,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-#include "title_bar/widget.h"
-#include <iostream>
-
 #include <windows.h>
 
-#include "UI/settings.hpp"
-#include "UI/theme.hpp"
-#include "startdialog.hpp"
 #include "title_bar/QWinWidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -31,9 +25,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
-    void on_openSideBarBT_clicked();
-
 private:
     Ui::MainWindow *ui;
     QWinWidget win;
@@ -41,5 +32,7 @@ private:
 
 signals:
     void sizeChanged();
+private slots:
+    void on_pushButton_6_clicked();
 };
 #endif // MAINWINDOW_HPP

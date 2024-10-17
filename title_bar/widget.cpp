@@ -9,7 +9,7 @@ Widget::Widget(QWidget *parent)
     QPalette Pal(palette());
 
     if (darkThemeEnabled) {
-        Pal.setColor(QPalette::Window, QColor(20, 20, 20));
+        Pal.setColor(QPalette::Window, QColor("#1f2936"));
     } else {
         Pal.setColor(QPalette::Window, Qt::white);
     }
@@ -31,24 +31,28 @@ Widget::Widget(QWidget *parent)
     QWidget *btnSpacer = new QWidget(toolBar);
     btnSpacer->setAttribute(Qt::WA_TransparentForMouseEvents);
     btnSpacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    btnSpacer->setStyleSheet("background-color: none; border: none;");
-    btnSpacer->setFixedWidth(135 /* rough width of close/min/max buttons */);
+    btnSpacer->setStyleSheet(QString::fromUtf8("background-color: none; border: none;"));
+    btnSpacer->setFixedWidth(135); // rough width of close/min/max buttons
     toolBar->addWidget(btnSpacer);
 
     //Create a title label just because
-    QLabel *titleLabel = new QLabel("              MyUI");
-    if (darkThemeEnabled) {
-        titleLabel->setStyleSheet("color: rgb(255,255,255);");
-    } else {
-        titleLabel->setStyleSheet("color: rgb(0,0,0);");
-    }
-    QFont font = titleLabel->font();
-    font.setPointSize(12);
-    titleLabel->setFont(font);
+    QLabel *titleLabel = new QLabel(this);
+    QFont font1;
+    font1.setFamilies({QString::fromUtf8("Microsoft YaHei UI")});
+    font1.setPointSize(12);
+    font1.setBold(true);
+    titleLabel->setFont(font1);
     titleLabel->setFixedWidth(160);
+    if (darkThemeEnabled) {
+        titleLabel->setStyleSheet("color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(33, 150, 243, 255), stop:1 rgba(0, 255, 70, 255));");
+    } else {
+        titleLabel->setStyleSheet("color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(33, 150, 243, 255), stop:1 rgba(0, 255, 70, 255));");
+    }
+    titleLabel->setAlignment(Qt::AlignCenter);
 
     //Set it transparent to mouse events such that you can click and drag when moused over the label
     titleLabel->setAttribute(Qt::WA_TransparentForMouseEvents);
+    titleLabel->setText(QCoreApplication::translate("MainWindow", "Zaid amier", nullptr));
 
     //Create spacer widgets to keep the title centered
     QWidget *leftSpacer = new QWidget(toolBar);

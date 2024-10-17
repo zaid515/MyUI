@@ -2,38 +2,55 @@
 
 Spinner::Spinner(QWidget *parent)
     : QWidget{parent}
+    , a(this, "degree")
     , spinnerColor(QColor(33, 150, 243))
-    , spinnerWidth(3)
-    , duration(1000)
+    , spinnerWidth(4)
+    , duration(750)
     , degree(0)
 {
-    QPropertyAnimation *a = new QPropertyAnimation(this, "degree");
-    a->setDuration(duration);
-    a->setStartValue(0);
-    a->setEndValue(100);
-    a->start();
+    //init animation
+    a.setDuration(duration);
+    a.setStartValue(0);
+    a.setEndValue(360);
+    a.start();
 
-    connect(a, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
-    connect(a, &QPropertyAnimation::finished, this, [=]() { a->start(); });
+    connect(&a, &QPropertyAnimation::valueChanged, this, [=]() { update(); });
+    connect(&a, &QPropertyAnimation::finished, this, [=]() {
+        a.start();
+    });
 }
 
 void Spinner::paintEvent(QPaintEvent *event)
 {
+    //init painter
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
 
-    b = QBrush(gradient);
+    //make color faded
     gradient.setStart(this->width() / 2, 0);
     gradient.setFinalStop(this->width() / 2, this->height());
-    gradient.setColorAt(0, Qt::black);
-    gradient.setColorAt(1, spinnerColor);
+    gradient.setColorAt(0, spinnerColor);
+    gradient.setColorAt(1, QColor(5, 239, 97));
 
-    p.setPen(QPen(b, spinnerWidth));
-    QRectF rect(p.pen().widthF() / 2.0,
-                p.pen().widthF() / 2.0,
+    b = QBrush(gradient);
+
+    //init painter pen
+    QPen a;
+    a.setBrush(b);
+    a.setWidth(spinnerWidth);
+    a.setCapStyle(Qt::RoundCap);
+    p.setPen(a);
+
+    //init painter rect and ignor spinner width
+    QRectF rect((p.pen().widthF() / 2.0) - (this->width() / 2),
+                (p.pen().widthF() / 2.0) - (this->height() / 2),
                 width() - p.pen().widthF(),
                 height() - p.pen().widthF());
-    p.drawArc(rect, 90 * 16, (360 * (degree / 100.0)) * 16);
+
+    //draw spinner
+    p.translate((this->width() / 2), (this->height() / 2));
+    p.rotate(degree);
+    p.drawArc(rect, 90 * 16, (360 * (25 / 100.0)) * 16);
 
     QWidget::paintEvent(event);
 }

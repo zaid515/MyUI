@@ -1,4 +1,5 @@
 #include "theme.hpp"
+#include "UI/settings.hpp"
 
 Theme::Theme()
     : darkThemeEnabled(false)
@@ -8,6 +9,7 @@ Theme::Theme()
 
 void Theme::init()
 {
+    //applying theme
     darkThemeEnabled = Settings::read("Settings.ini", "DarkThemeEnabled").toBool();
     if (darkThemeEnabled) {
         titleBarButtons = read(":/Styles/Dark_Theme/Title_Bar_Buttons.txt");
@@ -20,6 +22,7 @@ void Theme::init()
     }
 }
 
+//read file data
 QString Theme::read(const QString &fileName)
 {
     QFile file(fileName);
